@@ -10,6 +10,11 @@ export default function App() {
 
   const [headImage, setHeadImage] = useState(img01)
 
+  const handleImageClick = (e) => {
+    setHeadImage(e.target.src)
+  }
+
+  // testing how call ,apply, bind works
 
   return (
     <section className="gallery">
@@ -21,13 +26,13 @@ export default function App() {
 
       <div className="body">
         <figure >
-          <img className={headImage == img01 ? 'active' : ''} src={img01} onClick={(e) => { setHeadImage(e.target.src) }} alt="" />
+          <img src={img01} onClick={(e) => handleImageClick.apply(this, [e])} alt="" />
         </figure>
         <figure>
-          <img className={headImage == img02 ? 'active' : ''} src={img02} onClick={(e) => { setHeadImage(e.target.src) }} alt="" />
+          <img src={img02} onClick={(e) => handleImageClick.apply(this, [e])} alt="" />
         </figure>
         <figure>
-          <img className={headImage == img03 ? 'active' : ''} src={img03} onClick={(e) => { setHeadImage(e.target.src) }} alt="" />
+          <img src={img03} onClick={(e) => handleImageClick.apply(this, [e])} alt="" />
         </figure>
       </div>
     </section>
